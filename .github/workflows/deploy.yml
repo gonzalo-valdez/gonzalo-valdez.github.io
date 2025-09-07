@@ -17,7 +17,11 @@ jobs:
           node-version: 18
 
       - run: npm install
-      - run: npm run build
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_DISABLE_FONT_PRELOAD: 1
+
       - run: npm run export
 
       - name: Deploy to GitHub Pages
