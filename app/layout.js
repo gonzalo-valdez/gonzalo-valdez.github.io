@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Barlow } from "next/font/google";
+import { TranslationProvider } from "@/hooks/useTranslation";
 
 const barlow = Barlow({
 	subsets: ["latin"],
@@ -15,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className={`${barlow.className}  antialiased`}>{children}</body>
+			<body className={`${barlow.className}  antialiased`}>
+				<TranslationProvider>{children}</TranslationProvider>
+			</body>
 		</html>
 	);
 }

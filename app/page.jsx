@@ -2,14 +2,18 @@
 import Hero3D from "@/components/Hero3D";
 import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import ProjectCard from "@/components/ProjectCard";
+import { useTranslation } from "@/hooks/useTranslation";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { Spotlight } from "@/components/spotlight";
 export default function Home() {
 	const [showProjects, setShowProjects] = useState(false);
 	const [buttonRect, setButtonRect] = useState(null);
 	const buttonRef = useRef(null);
 	const [isMounted, setIsMounted] = useState(false); // Flag to track if component is mounted
 	const [fadeOut, setFadeOut] = useState(false);
-
+	const { t } = useTranslation();
+	const projects = t("projects.projectData");
 	useEffect(() => {
 		setTimeout(() => {
 			setIsMounted(true);
@@ -33,6 +37,8 @@ export default function Home() {
 					fadeOut ? "hidden" : "block"
 				}`}
 			/>
+
+			<LanguageSwitcher />
 			{/* Hero3D stays until overlay finishes */}
 			<AnimatePresence>
 				{!showProjects && (
@@ -55,8 +61,8 @@ export default function Home() {
 						transition={{ duration: 0.6, ease: "easeInOut", delay: 1.2 }}
 						className="relative z-30 text-center"
 					>
-						<h1 className="text-6xl font-semibold text-white drop-shadow-lg">Gonzalo Valdez</h1>
-						<p className="mt-4 text-xl text-gray-200 font-semibold">Full-Stack Developer</p>
+						<h1 className="text-6xl font-semibold text-white drop-shadow-lg">{t("home.title")}</h1>
+						<p className="mt-4 text-xl text-gray-200 font-semibold">{t("home.subtitle")}</p>
 					</motion.div>
 				)}
 			</AnimatePresence>
@@ -72,7 +78,7 @@ export default function Home() {
 						transition={{ duration: 0.6, ease: "easeInOut", delay: 0.7 }}
 						className="mt-8 px-6 py-3 text-white font-semibold rounded-xl shadow-lg relative z-50 cursor-pointer"
 					>
-						View My Work
+						{t("home.button")}
 					</motion.button>
 				)}
 			</AnimatePresence>
@@ -85,18 +91,18 @@ export default function Home() {
 							top: buttonRect.top,
 							width: buttonRect.width,
 							height: buttonRect.height,
-							borderRadius: "0.75rem",
+							borderRadius: "20%",
 						}}
 						animate={{
-							left: 0,
-							top: 0,
-							width: "100vw",
-							height: "100vh",
-							borderRadius: "0rem",
+							left: "-50%",
+							top: "-50%",
+							width: "200vw",
+							height: "200vh",
+							borderRadius: "100%",
 						}}
 						exit={{ opacity: 0 }}
 						transition={{ duration: 1.2, ease: "easeInOut" }}
-						className="absolute bg-gray-950 z-40"
+						className="absolute bg-gray-950 z-40 "
 					/>
 				)}
 			</AnimatePresence>
@@ -107,22 +113,16 @@ export default function Home() {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.8, duration: 0.6 }}
-						className="absolute inset-0 z-40 flex flex-col items-center justify-center bg-gray-950 px-6 py-20"
+						className="absolute inset-0 z-40 bg-gray-950 flex flex-col items-center overflow-hidden"
 					>
-						<h2 className="text-4xl font-bold text-white mb-12">My Projects</h2>
-						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl">
-							{["Project A", "Project B", "Project C"].map((p, i) => (
-								<motion.div
-									key={p}
-									initial={{ opacity: 0, y: 30 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{ delay: 1 + i * 0.2 }}
-									className="bg-gray-800 rounded-xl shadow-lg p-6 hover:scale-105 transition"
-								>
-									<h3 className="text-2xl font-semibold text-white">{p}</h3>
-									<p className="text-gray-300 mt-2">Short description about {p}.</p>
-								</motion.div>
-							))}
+						<div className="w-full h-full overflow-y-auto px-4 py-16 flex flex-col items-center">
+							<Spotlight />
+							<h2 className="text-3xl sm:text-4xl font-bold text-white mb-8 sm:mb-12 text-center">{t("projects.title")}</h2>
+							<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 w-full max-w-6xl">
+								{projects.map((p, i) => (
+									<ProjectCard key={p.title} project={p} index={i} />
+								))}
+							</div>
 						</div>
 					</motion.section>
 				)}

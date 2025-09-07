@@ -1,0 +1,30 @@
+{
+	"home": {
+		"title": "Gonzalo Valdez",
+		"subtitle": "Full-Stack Developer",
+		"button": "View My Work"
+	},
+	"projects": {
+		"title": "My Projects",
+		"projectData": [
+			{
+				"title": "QRico (Restaurant ERP)",
+				"description": "A self-service ordering system with real-time updates and custom menu editor.",
+				"preview": "/gifs/qrico.gif",
+				"tech": ["Next.js", "React", "PostgreSQL", "AWS Lambda", "AWS Amplify", "Tailwind"]
+			},
+			{
+				"title": "CPB Medical ERP",
+				"description": "ERP for medical equipment sales, inventory tracking, and workflow automation.",
+				"preview": "/gifs/cpb.gif",
+				"tech": ["Next.js", "React", "MongoDB", "Tailwind", "AWS Amplify"]
+			},
+			{
+				"title": "Group Chat App",
+				"description": "A real-time group messaging platform built with Express.js, featuring live chat rooms, user management, and a simple clean interface using only HTML, CSS, and JavaScript.",
+				"preview": "/gifs/cpb.gif",
+				"tech": ["Express.js", "HTML", "CSS", "JavaScript"]
+			}
+		]
+	}
+}
