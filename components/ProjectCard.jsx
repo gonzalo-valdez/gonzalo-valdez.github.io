@@ -118,9 +118,7 @@ export default function ProjectCard({ project }) {
 								<div className="mt-6 text-gray-200 text-lg whitespace-pre-line">{project.fullDescription}</div>
 							</div>
 
-							<div className="flex-2">
-								<CardContainer>{renderPreview("w-full h-auto")}</CardContainer>
-							</div>
+							<div className="flex-2">{renderPreview("w-full h-auto")}</div>
 
 							<button onClick={() => setExpanded(false)} className="absolute top-15 right-5 text-white text-2xl">
 								<i className="bi bi-arrows-angle-contract"></i>
