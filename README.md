@@ -20,4 +20,4 @@ Feel free to reach out to me through any of the following channels:
 
 ---
 
-Thank you for visiting my portfolio! I am always open to new opportunities and collaborations.
+Thank you for visiting my portfolio, I am always open to new opportunities and collaborations.
