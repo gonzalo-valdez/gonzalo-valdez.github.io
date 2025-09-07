@@ -25,11 +25,17 @@ export default function ProjectCard({ project }) {
 	};
 
 	return (
-		<>
+		<div>
 			{/* Original 3D Card */}
 			<AnimatePresence>
 				{!expanded && (
-					<motion.div ref={cardRef} layoutId={`card-${project.title}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+					<motion.div
+						ref={cardRef}
+						layoutId={`card-${project.title}`}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0, transition: { duration: 0.1 } }}
+					>
 						<CardContainer>
 							<CardBody className="relative bg-black border-white/[0.2] border rounded-xl p-6 w-[22rem] h-auto group/card">
 								{/* Expand button */}
@@ -63,6 +69,7 @@ export default function ProjectCard({ project }) {
 			{/* Fullscreen View */}
 			<AnimatePresence>
 				{expanded && cardRect && (
+					// Outer div: layoutId + morphing
 					<motion.div
 						layoutId={`card-${project.title}`}
 						initial={{
@@ -72,8 +79,8 @@ export default function ProjectCard({ project }) {
 							height: cardRect.height,
 							position: "fixed",
 							borderRadius: "0.75rem",
-							backgroundColor: "#000000", // match card bg
-							overflow: "hidden",
+							backgroundColor: "#000000",
+							overflow: "hidden", // scroll handled inside
 							zIndex: 50,
 						}}
 						animate={{
@@ -82,20 +89,21 @@ export default function ProjectCard({ project }) {
 							width: "100vw",
 							height: "100vh",
 							borderRadius: 0,
-							backgroundColor: "#090c14", // fullscreen bg
-							transition: { duration: 0.6, ease: "easeInOut" },
+							backgroundColor: "#090c14",
+							transition: { duration: 0.4, ease: "easeInOut" },
 						}}
 						exit={{
 							opacity: 0,
 							transition: { duration: 0.4 },
 						}}
+						className="w-full h-full relative"
 					>
-						{/* Fade content in */}
+						{/* Inner div: content, scrolling, padding */}
 						<motion.div
 							initial={{ opacity: 0 }}
-							animate={{ opacity: 1, transition: { delay: 0.3, duration: 0.5 } }}
+							animate={{ opacity: 1, transition: { delay: 0.2, duration: 0.4 } }}
 							exit={{ opacity: 0, transition: { duration: 0.3 } }}
-							className="w-full h-full flex flex-col md:flex-row items-center justify-center p-10 text-white relative"
+							className="w-full h-full flex flex-col md:flex-row items-center p-10 pb-32 text-white overflow-y-auto"
 						>
 							<div className="flex-1 mb-6 md:mb-0 md:pr-10">
 								<h2 className="text-4xl font-bold text-center md:text-left">{project.title}</h2>
@@ -107,22 +115,20 @@ export default function ProjectCard({ project }) {
 									))}
 								</div>
 								<p className="mt-6 text-gray-200 text-lg">{project.description}</p>
-								{/* Extra fullscreen-only description */}
 								<div className="mt-6 text-gray-200 text-lg whitespace-pre-line">{project.fullDescription}</div>
 							</div>
 
-							{/* Fullscreen 3D Card for preview */}
 							<div className="flex-2">
 								<CardContainer>{renderPreview("w-full h-auto")}</CardContainer>
 							</div>
 
-							<button onClick={() => setExpanded(false)} className="absolute top-15 right-15 text-white text-2xl">
+							<button onClick={() => setExpanded(false)} className="absolute top-15 right-5 text-white text-2xl">
 								<i className="bi bi-arrows-angle-contract"></i>
 							</button>
 						</motion.div>
 					</motion.div>
 				)}
 			</AnimatePresence>
-		</>
+		</div>
 	);
 }

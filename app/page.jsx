@@ -113,7 +113,7 @@ export default function Home() {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.8, duration: 0.6 }}
-						className="absolute inset-0 z-40 bg-gray-950 flex flex-col items-center overflow-hidden"
+						className="absolute inset-0 z-40 bg-[#090c14] flex flex-col items-center overflow-hidden pb-20"
 					>
 						<div className="w-full h-full overflow-y-auto px-4 py-16 flex flex-col items-center">
 							<Spotlight />
