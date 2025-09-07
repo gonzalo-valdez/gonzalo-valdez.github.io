@@ -10,14 +10,16 @@
 			{
 				"title": "QRico (Restaurant ERP)",
 				"description": "A self-service ordering system with real-time updates and custom menu editor.",
-				"preview": "/gifs/qrico.gif",
-				"tech": ["Next.js", "React", "PostgreSQL", "AWS Lambda", "AWS Amplify", "Tailwind"]
+				"preview": "/videos/RestERP.mp4",
+				"tech": ["Next.js", "React", "PostgreSQL", "AWS Lambda", "AWS Amplify", "Tailwind"],
+				"fullDescription": "Key features include:\n\n- Multi-tenant restaurant management system.\n- Dynamic menu creation with nested options and allergens.\n- Real-time order notifications through WebSockets.\n- Table layout editor and zone management.\n- Staff and role management with fine-grained access control.\n- Secure cloud deployment with serverless architecture."
 			},
 			{
 				"title": "CPB Medical ERP",
 				"description": "ERP for medical equipment sales, inventory tracking, and workflow automation.",
-				"preview": "@/gifs/cpb.gif",
-				"tech": ["Next.js", "React", "MongoDB", "Tailwind", "AWS Amplify"]
+				"preview": "/videos/CPB.mp4",
+				"tech": ["Next.js", "React", "MongoDB", "Tailwind", "AWS Amplify"],
+				"fullDescription": "Key features include:\n\n- Comprehensive inventory and equipment tracking.\n- Automated sales and order management workflows.\n- Role-based access control for employees and admins.\n- Detailed reporting and analytics for business decisions.\n- Seamless integration with cloud services for reliability and scalability.\n- User-friendly interface for efficient daily operations."
 			},
 			{
 				"title": "Group Chat App",

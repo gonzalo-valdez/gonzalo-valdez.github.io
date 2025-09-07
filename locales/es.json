@@ -11,14 +11,16 @@
 			{
 				"title": "QRico (ERP de Restaurantes)",
 				"description": "Un sistema de pedidos de autoservicio con actualizaciones en tiempo real y editor de menús personalizado.",
-				"preview": "/gifs/qrico.gif",
-				"tech": ["Next.js", "React", "PostgreSQL", "AWS Lambda", "AWS Amplify", "Tailwind"]
+				"preview": "/videos/RestERP.mp4",
+				"tech": ["Next.js", "React", "PostgreSQL", "AWS Lambda", "AWS Amplify", "Tailwind"],
+				"fullDescription": "Características principales:\n\n- Sistema de gestión multi-restaurante.\n- Creación de menús dinámicos con opciones anidadas y alérgenos.\n- Notificaciones de pedidos en tiempo real mediante WebSockets.\n- Editor de disposición de mesas y gestión de zonas.\n- Gestión de personal y roles con control de acceso detallado.\n- Despliegue seguro en la nube con arquitectura serverless."
 			},
 			{
 				"title": "ERP Médico CPB",
 				"description": "ERP para ventas de equipos médicos, seguimiento de inventario y automatización de flujos de trabajo.",
-				"preview": "/gifs/cpb.gif",
-				"tech": ["Next.js", "React", "MongoDB", "Tailwind", "AWS Amplify"]
+				"preview": "/videos/CPB.mp4",
+				"tech": ["Next.js", "React", "MongoDB", "Tailwind", "AWS Amplify"],
+				"fullDescription": "Características principales:\n\n- Seguimiento completo de inventario y equipos médicos.\n- Automatización de flujos de ventas y gestión de pedidos.\n- Control de acceso basado en roles para empleados y administradores.\n- Informes y análisis detallados para decisiones empresariales.\n- Integración fluida con servicios en la nube para fiabilidad y escalabilidad.\n- Interfaz intuitiva para operaciones diarias eficientes."
 			},
 			{
 				"title": "Aplicación de Chat en Grupo",
