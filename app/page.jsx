@@ -127,6 +127,23 @@ export default function Home() {
 					</motion.section>
 				)}
 			</AnimatePresence>
+
+			<footer className="bg-none font-semibold text-white z-80 bottom-0 absolute rounded-xl p-4">
+				<div className="container mx-auto text-center">
+					<p className="mb-2">© {new Date().getFullYear()} Gonzalo Valdez</p>
+					<div className="flex justify-center gap-4">
+						<a href="mailto:gonzalovaldez1999@gmail.com" className="hover:text-gray-400">
+							Email
+						</a>
+						<a href="https://github.com/gonzalo-valdez" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+							GitHub
+						</a>
+						<a href="https://linkedin.com/in/gonzalo-valdez-8014b5271" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+							LinkedIn
+						</a>
+					</div>
+				</div>
+			</footer>
 		</main>
 	);
 }

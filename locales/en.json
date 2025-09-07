@@ -16,14 +16,15 @@
 			{
 				"title": "CPB Medical ERP",
 				"description": "ERP for medical equipment sales, inventory tracking, and workflow automation.",
-				"preview": "/gifs/cpb.gif",
+				"preview": "@/gifs/cpb.gif",
 				"tech": ["Next.js", "React", "MongoDB", "Tailwind", "AWS Amplify"]
 			},
 			{
 				"title": "Group Chat App",
-				"description": "A real-time group messaging platform built with Express.js, featuring live chat rooms, user management, and a simple clean interface using only HTML, CSS, and JavaScript.",
-				"preview": "/gifs/cpb.gif",
-				"tech": ["Express.js", "HTML", "CSS", "JavaScript"]
+				"description": "A real-time group messaging platform built with Express.js, featuring live chat rooms, user management, and a simple clean interface using raw HTML, CSS, and JavaScript.",
+				"preview": "/videos/Chat.mp4",
+				"tech": ["Express.js", "HTML", "CSS", "JavaScript"],
+				"fullDescription": "Key features include:\n\n- Create and manage group chats with ease.\n- Generate one-time use invite codes for secure access.\n- Assign or remove admin roles within groups.\n- Kick or remove members when needed.\n- Simple interface focused on group collaboration."
 			}
 		]
 	}

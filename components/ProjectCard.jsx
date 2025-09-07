@@ -7,7 +7,6 @@ import { CardContainer, CardBody, CardItem } from "@/components/3d-card";
 export default function ProjectCard({ project }) {
 	const [expanded, setExpanded] = useState(false);
 	const cardRef = useRef(null);
-
 	const [cardRect, setCardRect] = useState(null);
 
 	// Measure card position and size
@@ -17,6 +16,14 @@ export default function ProjectCard({ project }) {
 		}
 	}, [expanded]);
 
+	// Helper to render preview (video if mp4, else image)
+	const renderPreview = (className = "") => {
+		if (project.preview.endsWith(".mp4")) {
+			return <video src={project.preview} autoPlay loop muted playsInline className={`rounded-lg w-full h-auto ${className}`} />;
+		}
+		return <img src={project.preview} alt={`${project.title} preview`} className={`rounded-lg w-full h-auto object-cover ${className}`} />;
+	};
+
 	return (
 		<>
 			{/* Original 3D Card */}
@@ -24,24 +31,20 @@ export default function ProjectCard({ project }) {
 				{!expanded && (
 					<motion.div ref={cardRef} layoutId={`card-${project.title}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 						<CardContainer>
-							<CardBody className="relative bg-black border-white/[0.2] border  rounded-xl p-6 w-[22rem] h-auto group/card">
+							<CardBody className="relative bg-black border-white/[0.2] border rounded-xl p-6 w-[22rem] h-auto group/card">
 								{/* Expand button */}
-								<button onClick={() => setExpanded(true)} className="absolute top-3 right-3 text-gray-500  hover:text-gray-200 text-xl">
+								<button onClick={() => setExpanded(true)} className="absolute top-3 right-3 text-gray-500 hover:text-gray-200 text-xl">
 									<i className="bi bi-arrows-angle-expand"></i>
 								</button>
 
 								<CardItem translateZ={50} className="text-xl font-bold text-white">
 									{project.title}
 								</CardItem>
-								<CardItem as="p" translateZ={60} className=" text-sm mt-2 text-neutral-300">
+								<CardItem as="p" translateZ={60} className="text-sm mt-2 text-neutral-300">
 									{project.description}
 								</CardItem>
 								<CardItem translateZ={100} rotateX={10} className="w-full mt-4">
-									<img
-										src={project.previewGif}
-										alt={`${project.title} preview`}
-										className="h-48 w-full object-cover rounded-lg group-hover/card:shadow-xl"
-									/>
+									{renderPreview("h-48 group-hover/card:shadow-xl")}
 								</CardItem>
 
 								<div className="flex flex-wrap gap-2 mt-6">
@@ -61,7 +64,7 @@ export default function ProjectCard({ project }) {
 			<AnimatePresence>
 				{expanded && cardRect && (
 					<motion.div
-						layoutId={`card-${project.title}`} // shared layout
+						layoutId={`card-${project.title}`}
 						initial={{
 							top: cardRect.top,
 							left: cardRect.left,
@@ -104,9 +107,13 @@ export default function ProjectCard({ project }) {
 									))}
 								</div>
 								<p className="mt-6 text-gray-200 text-lg">{project.description}</p>
+								{/* Extra fullscreen-only description */}
+								<div className="mt-6 text-gray-200 text-lg whitespace-pre-line">{project.fullDescription}</div>
 							</div>
-							<div className="flex-1">
-								<img src={project.previewGif} alt={`${project.title} preview`} className="w-full h-auto rounded-lg" />
+
+							{/* Fullscreen 3D Card for preview */}
+							<div className="flex-2">
+								<CardContainer>{renderPreview("w-full h-auto")}</CardContainer>
 							</div>
 
 							<button onClick={() => setExpanded(false)} className="absolute top-15 right-15 text-white text-2xl">

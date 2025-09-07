@@ -6,6 +6,7 @@
 	},
 	"projects": {
 		"title": "Mis Proyectos",
+		"stack": "Mi Stack Tecnológico",
 		"projectData": [
 			{
 				"title": "QRico (ERP de Restaurantes)",
@@ -21,9 +22,10 @@
 			},
 			{
 				"title": "Aplicación de Chat en Grupo",
-				"description": "Una plataforma de mensajería en grupo en tiempo real creada con Express.js, con salas de chat en vivo, gestión de usuarios y una interfaz sencilla usando solo HTML, CSS y JavaScript.",
-				"preview": "/gifs/cpb.gif",
-				"tech": ["Express.js", "HTML", "CSS", "JavaScript"]
+				"description": "Plataforma de mensajería en tiempo real construida con Express.js, con salas de chat en vivo, gestión de usuarios e interfaz simple usando HTML, CSS y JavaScript puro.",
+				"preview": "/videos/Chat.mp4",
+				"tech": ["Express.js", "HTML", "CSS", "JavaScript"],
+				"fullDescription": "Funciones principales:\n\n- Crear y gestionar chats grupales fácilmente.\n- Generar codigos de invitación de un solo uso para acceso seguro.\n- Asignar o quitar roles de administrador en los grupos.\n- Expulsar o eliminar miembros cuando sea necesario.\n- Interfaz sencilla enfocada en la colaboración grupal."
 			}
 		]
 	}
